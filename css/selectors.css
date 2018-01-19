@@ -1,0 +1,15 @@
+p { /* This is a type selector */
+  /* For all p elements */
+}
+
+.new { /* This is a class selector */
+  /* For all elements like <whatever class="new"> */
+}
+
+#first { /* This is an ID selector */
+  /* For the one element like <whatever id="first"> */
+}
+
+nav li { /* This is a descendant combinator */
+  /* For all li elements within any nav element */
+}

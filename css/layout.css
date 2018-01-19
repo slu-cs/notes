@@ -1,0 +1,18 @@
+main {
+  width: 80%; /* Smaller than its container */
+  margin: auto; /* Centered within its container */
+}
+
+article {
+  border: thin solid black; /* Show the boundary */
+  padding: 2em; /* Space inside the boundary */
+  margin: 2%; /* Space outside the border */
+}
+
+img {
+  float: left; /* Stack from left to right */
+}
+
+section {
+  overflow: auto; /* Fit around floats */
+}

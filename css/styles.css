@@ -1,0 +1,21 @@
+h1 {
+  text-align: center; /* Center the text */
+}
+
+a {
+  text-decoration: none; /* Drop the underline */
+}
+
+#active {
+  font-weight: bold; /* Make it stand out */
+}
+
+ul {
+  list-style: none; /* Drop the bullets */
+}
+
+body {
+  color: #ffffff; /* For white text */
+  background: #000000; /* On a black background */
+  font-family: "Arial", sans-serif; /* In a different font */
+}
