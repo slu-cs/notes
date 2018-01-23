@@ -13,3 +13,7 @@ p { /* This is a type selector */
 nav li { /* This is a descendant combinator */
   /* For all li elements within any nav element */
 }
+
+header, footer { /* This is just shorthand for two rules */
+  /* Applies to all header and footer elements */
+}
