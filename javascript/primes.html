@@ -1,0 +1,31 @@
+<script>
+
+// Returns [0,1,2,..,n-1]
+const range = function(n) {
+  const array = [];
+  for (let i=0; i < n; i++) {
+    array.push(i);
+  }
+  return array;
+};
+
+// Returns all primes smaller than n
+const eratosthenes = function(n) {
+  const sieve = range(n);
+  const primes = [];
+
+  for (let i=2; i < sieve.length; i++) {
+    if (sieve[i]) { // Undeleted
+      primes.push(i);
+      for (let c = i*2; c < sieve.length; c += i) {
+        delete sieve[c]; // Multiple of i
+      }
+    }
+  }
+
+  return primes;
+};
+
+console.log(eratosthenes(100));
+
+</script>

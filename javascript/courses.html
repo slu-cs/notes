@@ -1,0 +1,41 @@
+<script>
+
+const courses = [
+  {subject: 'CS', number: 140},
+  {subject: 'CS', number: 219},
+  {subject: 'MATH', number: 280},
+  {subject: 'STAT', number: 113},
+];
+
+console.log('------------------ Courses');
+for (const course of courses) {
+  console.log(course);
+}
+
+console.log('------------------ Properties');
+for (const course of courses) {
+  console.log(course.subject, course.number);
+}
+
+console.log('------------------ Formatting');
+for (const course of courses) {
+  console.log(`SLU-${course.subject}-${course.number}`);
+}
+
+console.log('------------------ First above 200');
+const found = courses.find(course => course.number > 200);
+console.log(found);
+
+console.log('------------------ All above 200');
+const filtered = courses.filter(course => course.number > 200);
+console.log(filtered);
+
+console.log('------------------ All subjects');
+const mapped = courses.map(course => course.subject);
+console.log(mapped);
+
+console.log('------------------ Sorted by number');
+courses.sort((a,b) => a.number < b.number ? -1 : 1);
+console.log(courses);
+
+</script>
