@@ -1,0 +1,19 @@
+<script>
+
+const zip = [1,3,6,1,7];
+
+console.log(zip.find(x => x > 2));
+
+// Our own version of the find function (to see how it works)
+// Returns the first value of array that makes callback return true
+const find = function(array, callback) {
+  for (const value of array) {
+    if (callback(value)) {
+      return value;
+    }
+  }
+};
+
+console.log(find(zip, x => x > 2));
+
+</script>

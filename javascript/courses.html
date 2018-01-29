@@ -35,7 +35,7 @@ const mapped = courses.map(course => course.subject);
 console.log(mapped);
 
 console.log('------------------ Sorted by number');
-courses.sort((a,b) => a.number < b.number ? -1 : 1);
+courses.sort((a,b) => a.number - b.number);
 console.log(courses);
 
 </script>

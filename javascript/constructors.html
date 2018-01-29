@@ -1,0 +1,20 @@
+<script>
+
+// Constructor function
+const Course = function(cap, students) {
+  this.cap = cap;
+  this.students = students;
+};
+
+// All Courses will inherit this
+Course.prototype.seats = function() {
+  return this.cap - this.students;
+};
+
+const cs332 = new Course(30, 24);
+const cs140 = new Course(25, 28);
+
+console.log(cs332.seats());
+console.log(cs140.seats());
+
+</script>
