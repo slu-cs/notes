@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The DOM</title>
+  </head>
+  <body>
+      <main>
+        <h2>Messages</h2>
+        <ul>
+          <li>Hello</li>
+        </ul>
+        <form>
+          <input type="text" placeholder="New message" required>
+          <button type="submit">Send</button>
+        </form>
+        <article id="one">
+          <h2 class="headline">One</h2>
+          <img src="http://via.placeholder.com/50x50">
+        </article>
+        <article id="two">
+          <h2 class="headline">Two</h2>
+          <img src="http://via.placeholder.com/50x50">
+        </article>
+      </main>
+      <script>
+        ///////////////////////////////////////////// Access elements
+
+        // With CSS selectors
+        console.log(document.querySelector('main'));
+        console.log(document.querySelector('#one'));
+        console.log(document.querySelectorAll('article'));
+        console.log(document.querySelectorAll('.headline'));
+
+        // Via relatives
+        const one = document.querySelector('#one');
+        console.log(one.querySelector('img'));
+        console.log(one.parentElement);
+        console.log(one.children);
+
+        ///////////////////////////////////////////// Generate content
+
+        const h2 = document.createElement('h2');
+        h2.appendChild(document.createTextNode('Three'));
+        h2.classList.add('headline');
+
+        const img = document.createElement('img');
+        img.setAttribute('src', 'http://via.placeholder.com/50x50');
+
+        const article = document.createElement('article');
+        article.appendChild(h2);
+        article.appendChild(img);
+        article.id = 'three';
+
+        const main = document.querySelector('main');
+        main.appendChild(article);
+
+        /////////////////////////////////////////// Event listeners
+
+        // Make the 3rd image print itself when clicked
+        img.addEventListener('click', function() {
+          console.log(this); // this = clicked element
+        });
+
+        // Make all images remove their parent articles when clicked
+        main.addEventListener('click', function(event) {
+          const clicked = event.target;
+          if (clicked.tagName === 'IMG') {
+            const article = clicked.parentElement;
+            main.removeChild(article);
+          }
+        });
+
+        const form = document.querySelector('form');
+        const ul = document.querySelector('ul');
+
+        // Intercept form submission
+        form.addEventListener('submit', function(event) {
+          event.preventDefault(); // Don't reload the page
+
+          // Add a message to the list
+          const message = form.querySelector('input').value.trim();
+          if (message !== '') {
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(message));
+            ul.appendChild(li);
+            form.reset();
+          }
+        });
+
+      </script>
+  </body>
+</html>
