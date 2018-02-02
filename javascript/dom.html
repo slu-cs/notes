@@ -80,7 +80,7 @@
 
           // Add a message to the list
           const message = form.querySelector('input').value.trim();
-          if (message !== '') {
+          if (message) { // Not empty
             const li = document.createElement('li');
             li.appendChild(document.createTextNode(message));
             ul.appendChild(li);
