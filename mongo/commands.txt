@@ -1,5 +1,5 @@
-MongoDB setup
--------------
+MongoDB install
+---------------
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 sudo apt-get update
@@ -7,8 +7,8 @@ sudo apt-get install -y mongodb-org
 sudo service mongod start
 
 
-VM setup
---------
+Utility installs
+----------------
 sudo apt-get install sshfs
 sudo apt-get install tree
 
@@ -18,14 +18,15 @@ P-drive connection
 sshfs your-login@myslu:your/pdrive/folder cs332
 
 
-Viewing files
--------------
-tree cs332
+Viewing folder contents
+-----------------------
+ls folder
+tree folder
 
 
 Running mongo setup code
 ------------------------
-mongo path/to/your/code
+mongo cs332/path/to/your/code
 
 
 Entering the mongo shell

@@ -1,0 +1,26 @@
+Node install
+------------
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+
+Utility installs
+----------------
+sudo apt-get install curl
+
+
+Server initialization
+---------------------
+mkdir project-name
+cd project-name
+
+npm init
+npm install express
+
+cp package* ../cs332/path/to/project-name
+
+
+Server running
+--------------
+cp ../cs332/path/to/project-name/server.js .
+node server.js
