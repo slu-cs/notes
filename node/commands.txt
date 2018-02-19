@@ -16,6 +16,7 @@ cd project-name
 
 npm init
 npm install express
+npm install mongodb
 
 cp package* ../cs332/path/to/project-name
 
