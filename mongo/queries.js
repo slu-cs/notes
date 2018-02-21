@@ -18,9 +18,6 @@ db.books.find({authors: 'A1'})
 // See all books with titles beginning with G
 db.books.find({title: /^G/})
 
-// See all books with titles containing the word moon
-db.books.find({$text: {$search: 'moon'}})
-
 // See all authors with the last name Bond
 db.authors.find({'name.last': 'Bond'})
 
