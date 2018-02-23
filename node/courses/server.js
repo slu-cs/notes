@@ -1,13 +1,13 @@
 // A REST API for a collection of courses
-
 let db = null;
 const mongodb = require('mongodb');
 mongodb.MongoClient.connect('mongodb://localhost:27017', function(error, client) {
   if (error) throw error;
-  db = client.db('notes');
+  db = client.db('courses');
   db.courses = db.collection('courses');
 });
 
+// Create the server
 const express = require('express');
 const server = express();
 
@@ -25,9 +25,14 @@ server.use(function(request, response, next) {
   next();
 });
 
-// Return all courses
+// Return all courses (of a certain subject?)
 server.get('/', function(request, response, next) {
-  db.courses.find().toArray(function(error, courses) {
+  let course = {};
+  if (request.query.subject) {
+    course.subject = request.query.subject;
+  }
+
+  db.courses.find(course).toArray(function(error, courses) {
     if (error) return next(error);
     response.json(courses);
   });
@@ -93,6 +98,7 @@ server.use(function(error, request, response, next) {
 
   switch(error.message) {
     case 'Bad request':
+    case 'Document failed validation':
       response.sendStatus(400); // Bad request
       break;
     case 'Not found':
@@ -104,4 +110,5 @@ server.use(function(error, request, response, next) {
   }
 });
 
+// Start the server on port 3000
 server.listen(3000);
