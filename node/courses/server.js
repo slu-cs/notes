@@ -25,6 +25,11 @@ server.use(function(request, response, next) {
   next();
 });
 
+// Front end page
+server.get('/curriculum', function(request, response) {
+  response.sendFile('curriculum.html', {root: __dirname});
+});
+
 // Return all courses (of a certain subject?)
 server.get('/', function(request, response, next) {
   let course = {};

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Curriculum Management Webpage</title>
+  </head>
+  <body>
+    <h1>Courses</h1>
+    <ul id="courses"></ul>
+    <form id="new">
+      <input type="text" id="subject" placeholder="subject">
+      <input type="number" id="number" placeholder="number">
+      <button type="submit">Post New Course</button>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+    // Get the courses and add them to the list
+    $.ajax({method: 'GET', url: '/'})
+      .done(function(courses) {
+        for (const course of courses) {
+          $('#courses').append(`<li>${course.subject} ${course.number}</li>`);
+        }
+      });
+
+    // Intercept form submission to post a new course in the background
+    $('#new').on('submit', function(event) {
+      event.preventDefault();
+      const course = {
+        subject: $('#subject').val(),
+        number: $('#number').val(),
+      };
+
+      $.ajax({method: 'POST', url: '/', data: course})
+        .done(function(course) {
+          $('#courses').append(`<li>${course.subject} ${course.number}</li>`);
+        });
+    });
+
+    </script>
+  </body>
+</html>
